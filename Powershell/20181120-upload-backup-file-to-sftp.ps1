@@ -5,8 +5,8 @@ Clear-Host
 ################################ 
 
 # SFTP
-$SFTPIP                 = '192.168.20.14'
-$SFTPPort               = '6798'
+$SFTPIP                 = '192.168.XX.XX'
+$SFTPPort               = 'XXXX'
 
 # Get current Month
 $systemDatabase         = 'S:\CL01-INST02-BACKUP\SYSTEM_DATABASES'
@@ -16,15 +16,15 @@ $currentMonth           = (Get-Culture).DateTimeFormat.GetMonthName($numerMonth)
 $fullPathSystemDatabase = "$systemDatabase\$currentYear\$currentMonth\FULL"
 
 # Path SFTP
-$SFTPPath               = "/BKP-CAEDDC02DB02/CL01-INST02-BACKUP/SYSTEM_DATABASES/"
+$SFTPPath               = "/BKP-PATH/CL01-INST02-BACKUP/SYSTEM_DATABASES/"
 $fullSFTPPath           = "$sftpPath/$currentYear/$currentMonth/"
 
 # database Intraction
 $SQLServer = "DBSERVER02\DBSERVER02" #use Server\Instance for named SQL instances!
 
 # CRIA AS CREDENCIAIS DE ACESSO PARA O SFTP
-$UserName               = "caedbackup"
-$SecurePassword         = "caedbackup@caed.2013" | ConvertTo-SecureString -AsPlainText -Force
+$UserName               = "seu-usuario"
+$SecurePassword         = "sua-senha" | ConvertTo-SecureString -AsPlainText -Force
 $Credentials            = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
 
 Clear
