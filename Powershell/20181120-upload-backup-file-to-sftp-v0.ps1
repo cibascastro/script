@@ -140,12 +140,12 @@ $Credentials = New-Object System.Management.Automation.PSCredential -ArgumentLis
 $Session = New-SFTPSession -ComputerName $SFTPIP -Port $SFTPPort -Credential $Credentials
 
 
-#Copy-Item -Path "/S:/CL01-INST02-BACKUP/SYSTEM_DATABASES/2018/OCTOBER/FULL/model/model_20181006230.BAK" -Destination "/BKP-CAEDDC02DB02/CL01-INST02-BACKUP/" -ToSession $Session
+#Copy-Item -Path "/S:/CL01-INST02-BACKUP/SYSTEM_DATABASES/2018/OCTOBER/FULL/model/model_20181006230.BAK" -Destination "/BKP-PATH/CL01-INST02-BACKUP/" -ToSession $Session
 
-#Get-SFTPFile -SFTPSession $Session -LocalPath "S:\CL01-INST02-BACKUP\SYSTEM_DATABASES\2018\OCTOBER\FULL\model\model_20181006230.BAK" -LocalPath "/BKP-CAEDDC02DB02/CL01-INST02-BACKUP/" -Overwrite -NoProgress 
+#Get-SFTPFile -SFTPSession $Session -LocalPath "S:\CL01-INST02-BACKUP\SYSTEM_DATABASES\2018\OCTOBER\FULL\model\model_20181006230.BAK" -LocalPath "/BKP-PATH/CL01-INST02-BACKUP/" -Overwrite -NoProgress 
 
 
-Get-SFTPFile -SFTPSession $Session -LocalPathFile "/S:/CL01-INST02-BACKUP/SYSTEM_DATABASES/2018/OCTOBER/FULL/model/model_20181006230.BAK" -RemotePath "/BKP-CAEDDC02DB02/CL01-INST02-BACKUP/" -Overwrite -NoProgress 
+Get-SFTPFile -SFTPSession $Session -LocalPathFile "/S:/CL01-INST02-BACKUP/SYSTEM_DATABASES/2018/OCTOBER/FULL/model/model_20181006230.BAK" -RemotePath "/BKP-PATH/CL01-INST02-BACKUP/" -Overwrite -NoProgress 
 
 
 #Write-Host $fileExistsServidores
@@ -181,7 +181,7 @@ $Credentials = New-Object System.Management.Automation.PSCredential -ArgumentLis
 $Session = New-SFTPSession -ComputerName $SFTPIP -Port $SFTPPort -Credential $Credentials
 
 # ENVIO O ARQUIVO DO WINDOWS PARA O LINUX
-#Set-SFTPFile -SFTPSession $Session -LocalFile $Localfile -RemotePath "/BKP-CAEDDC02DB02/CL01-INST02-BACKUP/" -Overwrite
+#Set-SFTPFile -SFTPSession $Session -LocalFile $Localfile -RemotePath "/BKP-PATH/CL01-INST02-BACKUP/" -Overwrite
 
 #$a = "/BKP-CAEDDC02DB02/CL01-INST02-BACKUP/SYSTEM_DATABASES/2018"
 
@@ -203,7 +203,7 @@ else  {
 
 
 # CREATE DIRECTORY IN REMOTE FILE
-# New-SFTPItem -SFTPSession $Session -Path "/BKP-CAEDDC02DB02/CL01-INST02-BACKUP/TESTE/TESTE" -ItemType Directory 
+# New-SFTPItem -SFTPSession $Session -Path "/BKP-PATH/CL01-INST02-BACKUP/TESTE/TESTE" -ItemType Directory 
 
 #########################
 
@@ -263,7 +263,7 @@ $currentMonth           = (Get-Culture).DateTimeFormat.GetMonthName($numerMonth)
 $fullPathSystemDatabase = "$systemDatabase\$currentYear\$currentMonth\FULL"
 
 # Path SFTP
-$sftpPath               = "/BKP-CAEDDC02DB02/CL01-INST02-BACKUP/SYSTEM_DATABASES"
+$sftpPath               = "/BKP-PATH/CL01-INST02-BACKUP/SYSTEM_DATABASES"
 $fullSFTPPath           = "$sftpPath/$currentYear/$currentMonth/"
 
 Write-Output $fullSFTPPath
@@ -285,7 +285,7 @@ New-SFTPItem -SFTPSession $Session -Path $fullSFTPPath.ToUpper() -ItemType Direc
 
 
 # CREATE DIRECTORY IN REMOTE FILE
-# New-SFTPItem -SFTPSession $Session -Path "/BKP-CAEDDC02DB02/CL01-INST02-BACKUP/TESTE/TESTE" -ItemType Directory 
+# New-SFTPItem -SFTPSession $Session -Path "/BKP-PATH/CL01-INST02-BACKUP/TESTE/TESTE" -ItemType Directory 
 
 
 ############################################
@@ -306,7 +306,7 @@ $currentMonth           = (Get-Culture).DateTimeFormat.GetMonthName($numerMonth)
 $fullPathSystemDatabase = "$systemDatabase\$currentYear\$currentMonth\FULL"
 
 # Path SFTP
-$sftpPath               = "/BKP-CAEDDC02DB02/CL01-INST02-BACKUP/SYSTEM_DATABASES/"
+$sftpPath               = "/BKP-PATH/CL01-INST02-BACKUP/SYSTEM_DATABASES/"
 $fullSFTPPath           = "$sftpPath/$currentYear/$currentMonth/"
 
 
@@ -320,9 +320,9 @@ $Credentials = New-Object System.Management.Automation.PSCredential -ArgumentLis
 $Session = New-SFTPSession -ComputerName $SFTPIP -Port $SFTPPort -Credential $Credentials
 
 # ENVIO O ARQUIVO DO WINDOWS PARA O LINUX
-#Set-SFTPFile -SFTPSession $Session -LocalFile $Localfile -RemotePath "/BKP-CAEDDC02DB02/CL01-INST02-BACKUP/" -Overwrite
+#Set-SFTPFile -SFTPSession $Session -LocalFile $Localfile -RemotePath "/BKP-PATH/CL01-INST02-BACKUP/" -Overwrite
 
-#$a = "/BKP-CAEDDC02DB02/CL01-INST02-BACKUP/SYSTEM_DATABASES/2018"
+#$a = "/BKP-PATH/CL01-INST02-BACKUP/SYSTEM_DATABASES/2018"
 
 $pathExists = Get-SFTPChildItem -SFTPSession $Session  -Path $sftpPath -Recursive | Select-Object FullName | where-Object FullName -like "*$currentMonth*"
 
@@ -344,7 +344,7 @@ else  {
 
 
 # CREATE DIRECTORY IN REMOTE FILE
-# New-SFTPItem -SFTPSession $Session -Path "/BKP-CAEDDC02DB02/CL01-INST02-BACKUP/TESTE/TESTE" -ItemType Directory 
+# New-SFTPItem -SFTPSession $Session -Path "/BKP-PATH/CL01-INST02-BACKUP/TESTE/TESTE" -ItemType Directory 
 
 
 
