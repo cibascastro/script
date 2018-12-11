@@ -29,8 +29,8 @@ Write-Host "====================================================================
 
 
 # CRIA AS CREDENCIAIS DE ACESSO PARA O SFTP
-$UserName = "caedbackup"
-$SecurePassword = "caedbackup@caed.2013" | ConvertTo-SecureString -AsPlainText -Force
+$UserName = "seu-usuario"
+$SecurePassword = "sua-senha" | ConvertTo-SecureString -AsPlainText -Force
 $Credentials = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
 
 # ABRE A SESSAO NO SFTP
