@@ -1,4 +1,4 @@
-EXEC sp_xp_cmdshell_proxy_account 'avaprova', 'Caed.avaprova';  
+EXEC sp_xp_cmdshell_proxy_account 'avaprova', 'sua-senha';  
 GO
 
 ALTER LOGIN avaprova  
@@ -17,7 +17,7 @@ An error occurred during the execution of sp_xp_cmdshell_proxy_account. Possible
 -- 2. criar uma credencial no sql com o usuario do dominio criado
 
 -- https://dbamohsin.wordpress.com/2017/02/22/xp_cmdshell_proxy_account-credential-could-not-be-created/
-create credential ##xp_cmdshell_proxy_account## with identity = 'avaprova', secret = '123@qwe'
+create credential ##xp_cmdshell_proxy_account## with identity = 'avaprova', secret = 'sua-senha'
 
 -- 3. cria um proxy com o usuario da credencial ##xp_cmdshell_proxy_account## da permissao para CmdExec
 -- 4. adicionar o usuario criado no AD nas poliictas locais: Local Security Police\User Rights Assignment\Log on as batch job
