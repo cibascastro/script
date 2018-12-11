@@ -4,9 +4,9 @@ Clear-Host
 ########## PARAMETERS ##########
 ################################ 
 
-$SFTPIP         = '192.168.20.14'
-$SFTPPort       = '6798'
-$SFTPPath       = '/BKP-CAEDDC02DB02/'
+$SFTPIP         = '192.168.0.XX'
+$SFTPPort       = 'XXXX'
+$SFTPPath       = '/BKP-PATH/'
 $systemDatabase = 'S:\CL01-INST02-BACKUP\SYSTEM_DATABASES'
 $currentYear    = (Get-Date).Year
 $numberMonth    =  Get-Date -UFormat %m
@@ -107,9 +107,9 @@ Clear-Host
 ########## PARAMETERS ##########
 ################################ 
 
-$SFTPIP         = '192.168.20.14'
-$SFTPPort       = '6798'
-$SFTPPath       = '/BKP-CAEDDC02DB02/CL01-INST02-BACKUP/'
+$SFTPIP         = '192.168.XX.XX'
+$SFTPPort       = 'XXXX'
+$SFTPPath       = '/BKP-PATH/CL01-INST02-BACKUP/'
 $systemDatabase = 'S:\CL01-INST02-BACKUP\SYSTEM_DATABASES'
 $currentYear    = (Get-Date).Year
 $numberMonth     =  Get-Date -UFormat %m
@@ -132,8 +132,8 @@ Write-Host "====================================================================
 
 
 # CRIA AS CREDENCIAIS DE ACESSO PARA O SFTP
-$UserName = "caedbackup"
-$SecurePassword = "caedbackup@caed.2013" | ConvertTo-SecureString -AsPlainText -Force
+$UserName = "seu-usuario"
+$SecurePassword = "sua-senha" | ConvertTo-SecureString -AsPlainText -Force
 $Credentials = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
 
 # ABRE A SESSAO NO SFTP
@@ -167,13 +167,13 @@ $currentMonth           = (Get-Culture).DateTimeFormat.GetMonthName($numerMonth)
 $fullPathSystemDatabase = "$systemDatabase\$currentYear\$currentMonth\FULL"
 
 # Path SFTP
-$sftpPath               = "/BKP-CAEDDC02DB02/CL01-INST02-BACKUP/SYSTEM_DATABASES/"
+$sftpPath               = "/BKP-PATH/CL01-INST02-BACKUP/SYSTEM_DATABASES/"
 $fullSFTPPath           = "$sftpPath/$currentYear/$currentMonth/FULL/"
 
 
 # CRIA AS CREDENCIAIS DE ACESSO PARA O SFTP
-$UserName = "caedbackup"
-$SecurePassword = "caedbackup@caed.2013" | ConvertTo-SecureString -AsPlainText -Force
+$UserName = "seu-usuario"
+$SecurePassword = "sua-senha" | ConvertTo-SecureString -AsPlainText -Force
 $Credentials = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
 #$LocalFile = "S:\CL01-INST02-BACKUP\SYSTEM_DATABASES\2018\OCTOBER\FULL\model\model_20181006230.BAK" 
 
@@ -221,12 +221,12 @@ $currentMonth           = (Get-Culture).DateTimeFormat.GetMonthName($numerMonth)
 $fullPathSystemDatabase = "$systemDatabase\$currentYear\$currentMonth\FULL"
 
 # Path SFTP
-$sftpPath               = "/BKP-CAEDDC02DB02/CL01-INST02-BACKUP/SYSTEM_DATABASES"
+$sftpPath               = "/BKP-PATH/CL01-INST02-BACKUP/SYSTEM_DATABASES"
 $fullSFTPPath           = "$sftpPath/$currentYear/$currentMonth/"
 
 # CRIA AS CREDENCIAIS DE ACESSO PARA O SFTP
-$UserName = "caedbackup"
-$SecurePassword = "caedbackup@caed.2013" | ConvertTo-SecureString -AsPlainText -Force
+$UserName = "seu-usuario"
+$SecurePassword = "sua-senha" | ConvertTo-SecureString -AsPlainText -Force
 $Credentials = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
 #$LocalFile = "S:\CL01-INST02-BACKUP\SYSTEM_DATABASES\2018\OCTOBER\FULL\model\model_20181006230.BAK" 
 
@@ -269,8 +269,8 @@ $fullSFTPPath           = "$sftpPath/$currentYear/$currentMonth/"
 Write-Output $fullSFTPPath
 
 # CRIA AS CREDENCIAIS DE ACESSO PARA O SFTP
-$UserName = "caedbackup"
-$SecurePassword = "caedbackup@caed.2013" | ConvertTo-SecureString -AsPlainText -Force
+$UserName = "seu-usuario"
+$SecurePassword = "sua-senha" | ConvertTo-SecureString -AsPlainText -Force
 $Credentials = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
 #$LocalFile = "S:\CL01-INST02-BACKUP\SYSTEM_DATABASES\2018\OCTOBER\FULL\model\model_20181006230.BAK" 
 
@@ -311,8 +311,8 @@ $fullSFTPPath           = "$sftpPath/$currentYear/$currentMonth/"
 
 
 # CRIA AS CREDENCIAIS DE ACESSO PARA O SFTP
-$UserName = "caedbackup"
-$SecurePassword = "caedbackup@caed.2013" | ConvertTo-SecureString -AsPlainText -Force
+$UserName = "seu-usuario"
+$SecurePassword = "sua-senha" | ConvertTo-SecureString -AsPlainText -Force
 $Credentials = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
 #$LocalFile = "S:\CL01-INST02-BACKUP\SYSTEM_DATABASES\2018\OCTOBER\FULL\model\model_20181006230.BAK" 
 
